@@ -1,24 +1,31 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  def Index
+  def index
     @users = User.all
   end
-  def Create
+
+  def new
     @user = User.new
   end
 
-  def Show
-  @user = User.find_by[__id__]
+  def create
+
   end
-  def Update
+
+  def show
+
+  @user = User.find_by[__id__]
+
+  end
+
+  def update
     user = User.find_by[__id__]
   end
-  def Delete
+
+  def destroy
+
     user = User.find_by(name: 'David')
     user.destroy
   end
   private
-  parameters {
-
-  }
 end

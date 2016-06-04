@@ -1,0 +1,54 @@
+<%#= form_for @message, :url =>{:action => 'create', :controller => 'message'},remote: true do |f|   %>
+    <%#= f.text_field  :hashtag                      %>
+    <%#= f.text_area  :content                         %>
+    <%#= f.button :submit                           %>
+<%# end %>
+
+<script src="http://maps.googleapis.com/maps/api/js"></script>
+<script type="text/javascript">
+  function initMap() {
+
+    // Try HTML5 geolocation.
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        var pos = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
+        var latt = pos.lat;
+        document.getElementById('message_latitude').innerHTML= (latt);
+        document.getElementById('message_longtitude').innerHTML=pos.lng;
+      });
+    }
+  }
+  initMap();
+</script>
+
+<%= form_for @message, :url =>{:action => 'create', :controller => 'message'} do |f|   %>
+<%= f.text_field :hashtag %><br><br>
+<%= f.text_area  :content  %>
+    <%# @message.location = [:id=>"message_latitude", :id=> "message_longtitude"] %>
+<%= f.hidden_field :longtitude, :id=>'message_longtitude'%>
+  <%= f.hidden_field :latitude, :id=>'message_latitude' %>
+<%= f.button :submit       %>
+<% end %>
+
+<script src="http://maps.googleapis.com/maps/api/js"></script>
+<script type="text/javascript">
+  function initMap() {
+
+    // Try HTML5 geolocation.
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        var pos = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
+        var latt = pos.lat;
+        document.getElementById('message_latitude').value= pos.lat;
+        document.getElementById('message_longtitude').value=pos.lng;
+      });
+    }
+  }
+  initMap();
+</script>

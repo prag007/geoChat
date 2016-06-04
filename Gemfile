@@ -28,16 +28,29 @@ gem 'bower-rails'
 # Use Unicorn as the app server
 # gem 'unicorn'
 gem 'angular-rails-templates'
+gem 'angularjs-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem "rails-assets-angular-devise"
 gem 'bootstrap-sass'
+gem 'mongoid'
+  gem 'bson_ext'
+
+gem 'mongo'
+gem 'geocoder'
+
+group :assets do
+  gem 'bootstrap-modal-rails'
+
+end
+
+
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-  #gem 'bson_ext'
-  #gem 'mongo'
-  #gem 'mongoid'
+
+
 end
 
 group :development do

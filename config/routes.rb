@@ -1,6 +1,21 @@
 Rails.application.routes.draw do
 
 
+# get 'message/new' => 'message#new', :as => :new_message
+get 'message' => 'home#index'
+# post 'message/create'
+
+ #get 'message/index' => 'message#index'
+
+ #get 'message/show'
+ # get 'message/edit'
+
+ # get 'message/update'
+
+ # get 'message/destroy'
+ #post '/' => 'message#create'
+  resources :message #, only: [:index, :create, :destroy], defaults: {format: :json}
+
   devise_for :users
   root 'home#index'
   # The priority is based upon order of creation: first created -> highest priority.

@@ -31,5 +31,6 @@ module Geo
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+    config.mongoid.logger = Logger.new($stdout, :warn)
   end
 end
